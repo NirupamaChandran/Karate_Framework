@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"features\/CreateResource[1:6]","start":1722849862228,"end":1722849864166,"title":"features\/CreateResource[1:6] 14:54:22.228-14:54:24.166 Verify create resource"},{"id":2,"group":1,"content":"features\/DeleteResource[1:3]","start":1722849864747,"end":1722849865788,"title":"features\/DeleteResource[1:3] 14:54:24.747-14:54:25.788 Verify delete resource"},{"id":3,"group":1,"content":"features\/UpdateReasource[1:6]","start":1722849866635,"end":1722849868218,"title":"features\/UpdateReasource[1:6] 14:54:26.635-14:54:28.218 Verify update resource"},{"id":4,"group":1,"content":"features\/GetResources[1:3]","start":1722849865900,"end":1722849866563,"title":"features\/GetResources[1:3] 14:54:25.900-14:54:26.563 Verify get resources"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
